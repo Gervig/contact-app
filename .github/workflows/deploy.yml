@@ -33,10 +33,10 @@ jobs:
       - name: Sync files to DigitalOcean Droplet using rsync
         run: |
           # Define SSH connection info
-          SSH_USER="jetty"
+          SSH_USER="casper"
           DO_DROPLET_IP=${{ secrets.DO_DROPLET_IP }}
-          APP_NAME="timer"
-          REMOTE_PATH="/home/jetty/deployment/site/$APP_NAME/"
+          APP_NAME="contactapp"
+          REMOTE_PATH="contactapp.dataduck.dk"
 
           # Sync build output to the Droplet using rsync
           rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./dist/ $SSH_USER@$DO_DROPLET_IP:$REMOTE_PATH
