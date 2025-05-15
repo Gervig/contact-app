@@ -36,7 +36,7 @@ jobs:
           SSH_USER="casper"
           DO_DROPLET_IP=${{ secrets.DO_DROPLET_IP }}
           APP_NAME="contactapp"
-          REMOTE_PATH="contactapp.dataduck.dk"
+          REMOTE_PATH="/home/casper/deployment/site/contactapp"
 
           # Sync build output to the Droplet using rsync
           rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./dist/ $SSH_USER@$DO_DROPLET_IP:$REMOTE_PATH
